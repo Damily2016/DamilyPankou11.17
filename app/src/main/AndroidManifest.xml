@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.hujiang.designsupportlibrarydemo"
+    package="com.hujiang.pkds"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DesignDemo">
         <activity
-            android:name=".MainActivity"
+            android:name="com.hujiang.pkds.MainActivity"
             android:label="@string/app_mainpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -31,9 +31,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".DetailActivity"/>
-        <activity android:name=".SecondTabActivity"/>
-        <activity android:name=".ThirdTabActivity"/>
+        <activity android:name="com.hujiang.pkds.DetailActivity"/>
     </application>
 
 </manifest>

@@ -1,5 +1,6 @@
-package com.hujiang.designsupportlibrarydemo.fragments;
+package com.hujiang.pkds.fragments;
 
+import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -12,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.hujiang.designsupportlibrarydemo.R;
+import com.hujiang.pkds.MainActivity;
+import com.hujiang.pkds.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,20 +36,29 @@ import java.util.Locale;
 /**
  * Created by Dandan.Cao on 2016/9/13.
  */
-public class FirstTabFragment extends Fragment implements View.OnClickListener {
+public class SecondTabFragment extends Fragment implements View.OnClickListener {
     private View view;
     private Button bt_noti;
     Bitmap bitmap, bmp;
     private Notification notification = null;
     private ImageView imgShow;
-    private static final String TAG = "FirstTabFragment";
+    private MainActivity mainActivity;
+    private static final String TAG = "SecondTabFragment";
     File appDir;
     File file;
     String fileName;
+    public void onAttach(Activity activity) {
+        if (activity instanceof MainActivity){
+            mainActivity= (MainActivity) activity;
+        }
+        super.onAttach(activity);
+    }
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.screenshot, null);
+        view = inflater.inflate(R.layout.screenshot, container,false);
+        TabLayout tabLayout=mainActivity.getTabLayout();
+        tabLayout.setVisibility(View.GONE);
         bt_noti = (Button) view.findViewById(R.id.bt_image);
         bt_noti.setOnClickListener(this);
         return view;

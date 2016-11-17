@@ -1,4 +1,4 @@
-package com.hujiang.designsupportlibrarydemo;
+package com.hujiang.pkds;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
