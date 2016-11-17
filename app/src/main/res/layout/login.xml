@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffefebe7"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_relative"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip">
+
+        <ImageView
+            android:id="@+id/titleBg"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#841016" />
+
+        <Button
+            android:id="@+id/back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/back1"
+
+            />
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:singleLine="true"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+
+    </RelativeLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp">
+
+        <TableRow android:id="@+id/TableRow01">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="账号"
+                android:textColor="#000000"></TextView>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </TableRow>
+
+        <TableRow android:id="@+id/TableRow02">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="密码"
+                android:textColor="#000000"></TextView>
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="textPassword" />
+        </TableRow>
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/register_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="登录 "
+        android:textColor="#000000" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/imgbtn_wx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@*android:color/white"
+            android:drawableTop="@drawable/btn_weixin"
+            android:text="微信分享"
+            android:textColor="#ff999999"
+
+            />
+
+        <Button
+            android:id="@+id/imgbtn_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="200dp"
+            android:background="@*android:color/white"
+            android:drawableTop="@drawable/btn_qq"
+            android:text="QQ分享"
+            android:textColor="#ff999999"
+
+            />
+        <!--  <ImageButton
+              android:id="@+id/imgbtn_wx"
+             android:src="@drawable/login_btn_bg"
+              android:layout_width="60dp"
+              android:layout_height="60dp"
+              android:layout_marginLeft="10dp"
+              android:layout_marginRight="40dp"
+              android:background="@drawable/wxicon_unfocus"
+              android:clickable="true" />
+
+          <ImageButton
+              android:id="@+id/imgbtn_qq"
+              android:layout_width="60dp"
+              android:layout_height="60dp"
+              android:layout_marginLeft="100dp"
+              android:background="@drawable/qqicon_unfocus"
+              android:clickable="true"
+              android:src="@drawable/login_qqbg" />
+
+          <TextView
+              android:id="@+id/tv_qq"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@id/imgbtn_qq"
+              android:layout_marginTop="5dp"
+              android:text="微信登录"
+              android:textColor="#000000"
+              android:textSize="20sp" />
+
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_below="@id/imgbtn_qq"
+              android:layout_marginLeft="100dp"
+              android:layout_marginTop="5dp"
+              android:text="QQ登录"
+              android:textColor="#000000"
+              android:textSize="20sp" />-->
+    </RelativeLayout>
+</LinearLayout>
+
