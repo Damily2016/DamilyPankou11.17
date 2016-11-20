@@ -32,7 +32,8 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.homefragment, null);
+        mainActivity.getSupportActionBar().show();
+        View view = inflater.inflate(R.layout.homeragment, null);
         mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
         titles.add("进行中");
         titles.add("已完成");
