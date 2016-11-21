@@ -56,9 +56,12 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
+        mainActivity.getSupportActionBar().hide();
         view = inflater.inflate(R.layout.screenshot, container,false);
         TabLayout tabLayout=mainActivity.getTabLayout();
         tabLayout.setVisibility(View.GONE);
+
         bt_noti = (Button) view.findViewById(R.id.bt_image);
         bt_noti.setOnClickListener(this);
         return view;
