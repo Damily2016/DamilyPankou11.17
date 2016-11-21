@@ -1,4 +1,4 @@
-package com.hujiang.pkds;
+package com.damily.pkds;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

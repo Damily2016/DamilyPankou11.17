@@ -1,4 +1,4 @@
-package com.hujiang.pkds.behavior;
+package com.damily.pkds.behavior;
 
 import android.content.Context;
 import android.support.design.widget.AppBarLayout;

@@ -1,4 +1,4 @@
-package com.hujiang.pkds.fragments;
+package com.damily.pkds.fragments;
 
 import android.app.Activity;
 import android.app.Notification;
@@ -22,8 +22,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.hujiang.pkds.MainActivity;
-import com.hujiang.pkds.R;
+import com.damily.pkds.view.MainActivity;
+import com.damily.pkds.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -56,9 +56,8 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
         mainActivity.getSupportActionBar().hide();
-        view = inflater.inflate(R.layout.screenshot, container,false);
+        view = inflater.inflate(R.layout.activity_secondtab, container,false);
         TabLayout tabLayout=mainActivity.getTabLayout();
         tabLayout.setVisibility(View.GONE);
 

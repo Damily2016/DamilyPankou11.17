@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.hujiang.pkds"
+    package="com.damily.pkds"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -22,7 +22,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DesignDemo">
         <activity
-            android:name="com.hujiang.pkds.MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_mainpage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -31,7 +31,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.hujiang.pkds.DetailActivity"/>
+        <activity android:name=".view.DetailActivity"/>
+        <activity android:name=".view.LoginActivity"/>
+        <activity android:name=".view.RegisterActivity"/>
     </application>
 
 </manifest>
