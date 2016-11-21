@@ -59,7 +59,7 @@
         <RadioButton
             android:id="@+id/mdin_tab_me"
             style="@style/main_tab_bottom"
-            android:drawableTop="@drawable/main_navigation_car"
+            android:drawableTop="@drawable/main_navigation_more"
             android:text="@string/main_navigation_car"/>
     </RadioGroup>
 </android.support.design.widget.CoordinatorLayout>

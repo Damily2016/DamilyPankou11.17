@@ -31,6 +31,7 @@
         <item name="android:drawablePadding">@dimen/bottom_tab_padding_drawable</item>
         <item name="android:layout_weight">1.0</item>
     </style>
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>

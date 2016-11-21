@@ -92,7 +92,7 @@
             />
         <EditText
             android:id="@+id/vc_code"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="#0000"
@@ -110,9 +110,10 @@
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
             android:layout_gravity="center_vertical"
+            android:layout_marginRight="15dp"
             android:text="刷新验证码"
             android:textStyle="italic"
-            android:textColor="#40641e"
+            android:textColor="#841016"
             android:textSize="12sp" />
 
     </LinearLayout>
