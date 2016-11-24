@@ -2,6 +2,9 @@
 <manifest
     package="com.damily.pkds"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
@@ -20,6 +23,7 @@
         android:icon="@drawable/ball"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:name=".MyApplication"
         android:theme="@style/Theme.DesignDemo">
         <activity
             android:name=".view.MainActivity"
@@ -34,6 +38,11 @@
         <activity android:name=".view.DetailActivity"/>
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.RegisterActivity"/>
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="stateHidden|adjustResize"/>
     </application>
 
 </manifest>

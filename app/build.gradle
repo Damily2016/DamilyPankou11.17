@@ -33,5 +33,16 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.1.0'
     testCompile 'junit:junit:4.12'
     apt 'com.jakewharton:butterknife-compiler:8.1.0'
+    compile files('libs/MobCommons-2016.1012.1447.jar')
+    compile files('libs/MobTools-2016.1012.1447.jar')
+    compile name: 'SMSSDK-2.1.2', ext: 'aar'
+    compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
+    compile files('src/main/java/com/damily/pkds/libs/MobCommons-2016.1012.1447.jar')
+    compile files('src/main/java/com/damily/pkds/libs/MobTools-2016.1012.1447.jar')
 }
 
+repositories{
+    flatDir{
+        dirs 'D:\\Android_AS\\DamilyPankou\\app\\src\\main\\java\\com\\damily\\pkds\\libs'  //就是你放aar的目录地址
+    }
+}
