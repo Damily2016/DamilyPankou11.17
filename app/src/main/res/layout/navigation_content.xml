@@ -16,7 +16,7 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="90dp"
             android:background="#461616"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay"/>
@@ -33,10 +33,10 @@
 
 
     <RadioGroup
-        app:layout_behavior="com.hujiang.pkds.behavior.BottomViewBehavior"
+        app:layout_behavior="com.damily.pkds.behavior.BottomViewBehavior"
         android:id="@+id/main_tab_group"
         android:layout_width="fill_parent"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:background="#ffffff"
         android:gravity="bottom"
@@ -59,9 +59,8 @@
         <RadioButton
             android:id="@+id/mdin_tab_me"
             style="@style/main_tab_bottom"
-            android:drawableTop="@drawable/main_navigation_car"
+            android:drawableTop="@drawable/main_navigation_more"
             android:text="@string/main_navigation_car"/>
-
     </RadioGroup>
 </android.support.design.widget.CoordinatorLayout>
 

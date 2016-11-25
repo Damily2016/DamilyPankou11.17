@@ -45,26 +45,14 @@
         android:layout_marginTop="8dp">
 
         <TableRow android:id="@+id/TableRow01">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <Button
+                android:id="@+id/btn_registerText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="手机号"
-                android:textColor="#000000"></TextView>
-
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="发送验证码" />
-
+                android:text="手机号注册" />
         </TableRow>
 
         <TableRow android:id="@+id/TableRow02">
@@ -124,8 +112,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         android:gravity="center"
-        android:text="注册"
+        android:text="确定"
         android:textColor="#000000" />
 </LinearLayout>
 

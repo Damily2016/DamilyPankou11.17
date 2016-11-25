@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="hello"/>
-</LinearLayout>
+    android:layout_height="match_parent"
+    android:background="#ffefebe7"
+    android:orientation="horizontal"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+  >
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/top_relative"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+
+            <ImageView
+                android:id="@+id/titleBg"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#841016"/>
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="10.0dip"
+                android:singleLine="true"
+                android:text="Second"
+                android:textColor="@color/white"
+                android:textSize="15dp"/>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/bt_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="截屏到系统图库并通知"
+            />
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

@@ -1,9 +1,71 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text=" you"/>
-</LinearLayout>
+<?xml version="1.0" encoding="UTF-8"?>
+<android.support.v4.widget.NestedScrollView
+    android:id="@+id/empty_cart_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/register_bg"
+    android:orientation="horizontal"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+     >
+
+        <RelativeLayout
+            android:id="@+id/top_relative"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip">
+
+            <ImageView
+                android:id="@+id/titleBg"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="#841016"/>
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="10.0dip"
+                android:singleLine="true"
+                android:text="Me"
+                android:textColor="@color/white"
+                android:textSize="15dp"/>
+
+
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="145.0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.0dip"
+            android:layout_marginTop="80.0dip"
+            android:background="@drawable/android_big_button_x"
+            android:gravity="center"
+            android:text="登录"
+            android:textColor="#ff000000"
+            android:textSize="20.0sp"
+            />
+
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="145.0dip"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="80.0dip"
+            android:background="@drawable/android_big_button_x"
+            android:gravity="center"
+            android:text="注册"
+            android:textColor="#ff000000"
+            android:textSize="20.0sp"/>
+    </RelativeLayout>
+
+
+</android.support.v4.widget.NestedScrollView>
