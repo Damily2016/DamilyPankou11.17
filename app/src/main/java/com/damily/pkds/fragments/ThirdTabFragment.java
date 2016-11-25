@@ -59,7 +59,8 @@ public class ThirdTabFragment extends Fragment implements View.OnClickListener {
 
                 break;
             case R.id.btn_register:
-                Intent registerIntent=new Intent(getActivity(),RegisterActivity.class);
+               Intent registerIntent=new Intent(getActivity(),RegisterActivity.class);
+              //  Intent registerIntent=new Intent(getActivity(),RegisterActivity.class);
                 startActivity(registerIntent);
 
                 break;

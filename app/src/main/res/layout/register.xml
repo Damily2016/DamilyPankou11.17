@@ -45,14 +45,30 @@
         android:layout_marginTop="8dp">
 
         <TableRow android:id="@+id/TableRow01">
-            <Button
-                android:id="@+id/btn_registerText"
-                android:layout_width="0dp"
-                android:layout_weight="1"
+
+            <TextView
+
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:text="手机号注册" />
+                android:text="手机号"
+                android:textColor="#000000"></TextView>
+
+            <EditText
+                android:id="@+id/user_phone_input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+               />
+            <Button
+                android:id="@+id/get_code_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:text="获取验证码"
+                android:textColor="#000000"></Button>
         </TableRow>
 
         <TableRow android:id="@+id/TableRow02">
@@ -66,23 +82,7 @@
                 android:textColor="#000000"></TextView>
 
             <EditText
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:inputType="textPassword" />
-        </TableRow>
-
-        <TableRow android:id="@+id/TableRow03">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:text="确认密码"
-                android:textColor="#000000"></TextView>
-
-            <EditText
+                android:id="@+id/user_password_input"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,6 +100,7 @@
                 android:textColor="#000000"></TextView>
 
             <EditText
+                android:id="@+id/code_view"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -108,14 +109,14 @@
     </TableLayout>
 
     <Button
-        android:id="@+id/register_btn"
+        android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:text="确定"
+        android:text="注册"
         android:textColor="#000000" />
 </LinearLayout>
 
