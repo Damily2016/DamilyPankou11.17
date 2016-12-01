@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="transparent">#000000</color>
+    <color name="color_bg_selected">#d23a3a</color>
+    <color name="color_bg_normal">#e7e7e8</color>
+    <color name="color_text_selected">#d23a3a</color>
+    <color name="color_text_normal">#000000</color>
     <color name="window_background">#FFF5F5F5</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
@@ -7,4 +12,8 @@
     <color name="white">#ffffffff</color>
     <color name="light_gray">#ffe6e6e6</color>
     <color name="black">#ff000000</color>
+
+
+
+
 </resources>

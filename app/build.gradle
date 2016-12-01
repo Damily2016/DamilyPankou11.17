@@ -39,6 +39,17 @@ dependencies {
     compile name: 'SMSSDKGUI-2.1.2', ext: 'aar'
     compile files('src/main/java/com/damily/pkds/libs/MobCommons-2016.1012.1447.jar')
     compile files('src/main/java/com/damily/pkds/libs/MobTools-2016.1012.1447.jar')
+    compile 'cn.yipianfengye.android:zxing-library:2.0'
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Core-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-QQ-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-QZone-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-ShortMessage-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-SinaWeibo-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-TencentWeibo-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Core-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Favorite-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Moments-2.7.10.jar')
 }
 
 repositories{

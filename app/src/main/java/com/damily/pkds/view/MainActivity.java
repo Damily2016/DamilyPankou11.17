@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Fragment homeFragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
                 mDrawerLayout.closeDrawers();
+                main_tab_home.setChecked(true);
                 break;
         }
         return true;

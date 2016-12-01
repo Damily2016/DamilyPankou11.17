@@ -15,15 +15,21 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import com.damily.pkds.view.MainActivity;
 import com.damily.pkds.R;
+import com.damily.pkds.view.MainActivity;
+import com.uuzuche.lib_zxing.activity.CaptureActivity;
+import com.uuzuche.lib_zxing.activity.CodeUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,11 +44,13 @@ import java.util.Locale;
  */
 public class SecondTabFragment extends Fragment implements View.OnClickListener {
     private View view;
-    private Button bt_noti;
-    Bitmap bitmap, bmp;
+    private Button bt_noti,bt_scan, bt_rcode;
+    Bitmap  bmp;
     private Notification notification = null;
-    private ImageView imgShow;
+    private ImageView iv_rcode;
     private MainActivity mainActivity;
+    private EditText et_get;
+    private TextView tv_get;
     private static final String TAG = "SecondTabFragment";
     File appDir;
     File file;
@@ -60,8 +68,14 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
         view = inflater.inflate(R.layout.activity_secondtab, container,false);
         TabLayout tabLayout=mainActivity.getTabLayout();
         tabLayout.setVisibility(View.GONE);
-
+        iv_rcode = (ImageView) view.findViewById(R.id.iv_rcode);
+        et_get = (EditText) view.findViewById(R.id.et_get);
+        tv_get = (TextView) view.findViewById(R.id.tv_get);
+        bt_scan = (Button) view.findViewById(R.id.bt_scan);
+        bt_rcode = (Button) view.findViewById(R.id.bt_rcode);
         bt_noti = (Button) view.findViewById(R.id.bt_image);
+        bt_rcode.setOnClickListener(this);
+        bt_scan.setOnClickListener(this);
         bt_noti.setOnClickListener(this);
         return view;
     }
@@ -112,7 +126,19 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
                 getActivity().sendBroadcast(scanIntent);
                 sendNotification();
                 break;
-
+            case R.id.bt_scan:
+                Intent intent = new Intent(getActivity(), CaptureActivity.class);
+                startActivityForResult(intent, 0);
+                break;
+            case R.id.bt_rcode:
+                String textContent = et_get.getText().toString();
+                if (TextUtils.isEmpty(textContent)) {
+                    Toast.makeText(getActivity(), "您的输入为空!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                Bitmap mBitmap = CodeUtils.createImage(textContent, 400, 400, null);
+                iv_rcode.setImageBitmap(mBitmap);
+                break;
         }
     }
 
@@ -138,5 +164,27 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
         builder.setAutoCancel(true);
         notification = builder.build();
         mManager.notify(0, notification);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            //处理扫描结果（在界面上显示）
+            if (null != data) {
+                Bundle bundle = data.getExtras();
+                if (bundle == null) {
+                    return;
+                }
+                if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_SUCCESS) {
+                    String result = bundle.getString(CodeUtils.RESULT_STRING);
+                    //  Toast.makeText(this, "解析结果:" + result, Toast.LENGTH_LONG).show();
+                    tv_get.setText(result);
+                    Log.i(TAG, "onActivityResult:解析结果 " + result);
+                } else if (bundle.getInt(CodeUtils.RESULT_TYPE) == CodeUtils.RESULT_FAILED) {
+                    Toast.makeText(getActivity(), "解析二维码失败", Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 }

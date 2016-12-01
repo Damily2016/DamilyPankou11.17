@@ -33,7 +33,6 @@
                 android:textColor="@color/white"
                 android:textSize="15dp"/>
 
-
         </RelativeLayout>
 
         <Button
@@ -42,6 +41,42 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="截屏到系统图库并通知"
+            />
+
+        <EditText
+            android:id="@+id/et_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入二维码信息"
+            android:layout_marginTop="20dp"
+            />
+        <Button
+            android:id="@+id/bt_rcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="生成二维码"
+            />
+        <Button
+            android:id="@+id/bt_scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="扫描二维码"
+            />
+        <TextView
+            android:id="@+id/tv_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:hint="获取扫描二维码信息"
+            />
+
+        <ImageView
+            android:id="@+id/iv_rcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
             />
     </LinearLayout>
 

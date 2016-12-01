@@ -6,7 +6,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_dashboard"
-            android:title="CC Talk"/>
+            android:title="@string/main_navigation_home"/>
         <item
             android:id="@+id/nav_messages"
             android:icon="@drawable/ic_event"
