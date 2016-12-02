@@ -31,56 +31,37 @@
 
     <include layout="@layout/fragment_container"/>
 
-
     <RadioGroup
         app:layout_behavior="com.damily.pkds.behavior.BottomViewBehavior"
         android:id="@+id/main_tab_group"
         android:layout_width="fill_parent"
-        android:layout_height="80dp"
+        android:layout_height="65dp"
         android:layout_gravity="bottom"
-        android:background="#ba9292"
+        android:background="#461616"
         android:gravity="bottom"
         android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/main_tab_home"
+            style="@style/damily_radio_btn"
             android:checked="true"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="4dp"
-            android:drawablePadding="2dp"
-            android:gravity="center_horizontal"
-            android:layout_height="60dp"
             android:drawableTop="@drawable/my_selector"
-            android:button="@null"
             android:text="@string/main_navigation_home"
-            android:textColor="@drawable/radio_group_selector"/>
+           />
 
         <RadioButton
             android:id="@+id/main_tab_catagory"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="60dp"
-            android:layout_marginBottom="4dp"
-            android:drawablePadding="2dp"
-            android:gravity="center_horizontal"
-            android:button="@null"
+            style="@style/damily_radio_btn"
             android:drawableTop="@drawable/my_selector2"
             android:text="@string/main_navigation_catagory"
-            android:textColor="@drawable/radio_group_selector"/>
+           />
 
         <RadioButton
             android:id="@+id/mdin_tab_me"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="60dp"
-            android:layout_marginBottom="4dp"
-            android:drawablePadding="2dp"
-            android:gravity="center_horizontal"
-            android:button="@null"
+            style="@style/damily_radio_btn"
             android:drawableTop="@drawable/my_selector3"
             android:text="@string/main_navigation_car"
-            android:textColor="@drawable/radio_group_selector"/>
+            />
     </RadioGroup>
 </android.support.design.widget.CoordinatorLayout>
 
