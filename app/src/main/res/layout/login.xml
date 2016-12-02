@@ -6,39 +6,11 @@
     android:background="#ffefebe7"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/top_relative"
-        android:layout_width="fill_parent"
-        android:layout_height="50.0dip">
-
-        <ImageView
-            android:id="@+id/titleBg"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="#841016" />
-
-        <Button
-            android:id="@+id/back"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="13dp"
-            android:background="@drawable/back1"
-
-            />
-
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center_horizontal"
-            android:singleLine="true"
-            android:text="Login"
-            android:textColor="@color/white"
-            android:textSize="15sp" />
-
-    </RelativeLayout>
+    <com.damily.pkds.Defined_TitleBarView
+        android:id="@+id/back_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.damily.pkds.Defined_TitleBarView>
 
     <TableLayout
         android:layout_width="match_parent"
@@ -142,6 +114,7 @@
             android:background="@*android:color/white"
             android:drawableTop="@drawable/btn_weixin"
             android:text="微信登录"
+            android:drawablePadding="4.0dip"
             android:textColor="#ff999999"
 
             />
@@ -154,6 +127,7 @@
             android:background="@*android:color/white"
             android:drawableTop="@drawable/btn_qq"
             android:text="QQ登录"
+            android:drawablePadding="4.0dip"
             android:textColor="#ff999999"
 
             />

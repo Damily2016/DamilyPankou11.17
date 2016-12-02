@@ -23,7 +23,7 @@
                 android:id="@+id/titleBg"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:background="#841016"/>
+                android:background="#461616"/>
 
             <TextView
                 android:id="@+id/titleText"

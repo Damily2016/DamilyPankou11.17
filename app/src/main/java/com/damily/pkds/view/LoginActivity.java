@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.damily.pkds.R;
@@ -17,11 +18,11 @@ import com.damily.pkds.utils.Code;
  * Created by Dandan.Cao on 2016/11/8.
  */
 public class LoginActivity extends Activity implements View.OnClickListener {
-    private Button back, btn_login, imgbtn_qq, imgbtn_wx, vc_refresh;
+    private Button  btn_login, imgbtn_qq, imgbtn_wx, vc_refresh;
     private EditText vc_code;
     private ImageView vc_image;
     private String getCode=null;  //获取验证码值
-
+    private TextView title_tv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +34,8 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     }
 
     private void initView() {
-        back = (Button) findViewById(R.id.back);
+        title_tv= (TextView) findViewById(R.id.title_tv);//自定义view
+        title_tv.setText("Login");//自定义view
         imgbtn_wx = (Button) findViewById(R.id.imgbtn_wx);
         imgbtn_qq = (Button) findViewById(R.id.imgbtn_qq);
         btn_login = (Button) findViewById(R.id.btn_login);
@@ -42,7 +44,7 @@ public class LoginActivity extends Activity implements View.OnClickListener {
         vc_image.setImageBitmap(Code.getInstance().getBitmap());
         getCode=Code.getInstance().getCode();
         vc_code = (EditText) findViewById(R.id.vc_code);
-        back.setOnClickListener(this);
+      //  back.setOnClickListener(this);
         imgbtn_wx.setOnClickListener(this);
         imgbtn_qq.setOnClickListener(this);
         btn_login.setOnClickListener(this);
@@ -52,9 +54,6 @@ public class LoginActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.back:
-                this.finish();
-                break;
             case R.id.vc_refresh:
                 vc_image.setImageBitmap(Code.getInstance().getBitmap());
                 getCode=Code.getInstance().getCode();  //获取显示的验证码

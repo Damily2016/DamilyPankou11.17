@@ -31,7 +31,9 @@ public class RegisterActivity extends Activity {
     private int TIME = 60;//倒计时60s
     private EditText userPhoneText, userPasswordText, userNameText, codeText;
     private TextView loginView;
-    private Button registerButton, getCodeButton,back_register;
+    private Button registerButton, getCodeButton;//,back_register;     自定义title view注释
+  //  private Defined_TitleBarView back_register;
+    private TextView title_tv;
     private EventHandler eventHandler;
     private String userPhone;
 
@@ -43,17 +45,17 @@ public class RegisterActivity extends Activity {
         initView();//界面初始化
         initSDK();//短信初始化
     }
-
     //初始化界面
     void initView() {
-        back_register = (Button) findViewById(R.id.back_register);//exit register page
+      //  back_register = (Defined_TitleBarView) findViewById(R.id.back_register);//exit register page
+        title_tv= (TextView) findViewById(R.id.title_tv);//自定义view
+        title_tv.setText("Register");//自定义view
         userPhoneText = (EditText) findViewById(R.id.user_phone_input);
         userPasswordText = (EditText) findViewById(R.id.user_password_input);
         registerButton = (Button) findViewById(R.id.register_button);
         getCodeButton = (Button) findViewById(R.id.get_code_button);
         registerButton.setOnClickListener(new OnClickListener());
         getCodeButton.setOnClickListener(new OnClickListener());
-        back_register.setOnClickListener(new OnClickListener());
         codeText = (EditText) findViewById(R.id.code_view);
     }
     //初始化SMSSDK
@@ -89,12 +91,9 @@ public class RegisterActivity extends Activity {
                 case R.id.register_button://注册
                     SMSSDK.submitVerificationCode("86", userPhone, codeText.getText().toString());//对验证码进行验证->回调函数
                     break;
-                case R.id.back_register:
-                    RegisterActivity.this.finish();
-                    break;
+
             }
         }
-
 
         private void sendMsg() {
             new AlertDialog.Builder(RegisterActivity.this)
