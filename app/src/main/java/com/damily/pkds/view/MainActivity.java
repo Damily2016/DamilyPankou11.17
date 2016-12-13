@@ -10,14 +10,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.damily.pkds.R;
 import com.damily.pkds.fragments.HomeFragment;
+import com.damily.pkds.fragments.NavSecondFragment;
+import com.damily.pkds.fragments.NavThirdFragment;
 import com.damily.pkds.fragments.SecondTabFragment;
 import com.damily.pkds.fragments.ThirdTabFragment;
 
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
     private FragmentManager fragmentManager;
     private RadioButton main_tab_home, main_tab_catagory, mdin_tab_me;
+    private RadioGroup main_tab_group;
 
     public TabLayout getTabLayout() {
         return mTabLayout;
@@ -43,13 +46,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onDrawerClosed(View drawerView) {
                 super.onDrawerClosed(drawerView);
-               // Toast.makeText(MainActivity.this, R.string.navigation_drawer_close, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(MainActivity.this, R.string.navigation_drawer_close, Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
-             //   Toast.makeText(MainActivity.this, R.string.navigation_drawer_open, Toast.LENGTH_SHORT).show();
+                //   Toast.makeText(MainActivity.this, R.string.navigation_drawer_open, Toast.LENGTH_SHORT).show();
             }
         };
         mDrawerLayout.setDrawerListener(toggle);
@@ -60,7 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-
                 return true;
             }
         });
@@ -73,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         main_tab_home = (RadioButton) findViewById(R.id.main_tab_home);
         main_tab_catagory = (RadioButton) findViewById(R.id.main_tab_catagory);
         mdin_tab_me = (RadioButton) findViewById(R.id.mdin_tab_me);
+        main_tab_group = (RadioGroup) findViewById(R.id.main_tab_group);
         main_tab_home.setOnClickListener(this);
         main_tab_catagory.setOnClickListener(this);
         mdin_tab_me.setOnClickListener(this);
@@ -84,11 +87,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
     }
 
-    @Override
+ /* 标题不要菜单项目 titlebar without menu item
+   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_overaction, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,6 +116,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
                 mDrawerLayout.closeDrawers();
                 main_tab_home.setChecked(true);
+                main_tab_group.setVisibility(View.VISIBLE);
+                break;
+            case R.id.nav_second:
+                Fragment navSecondFragment = new NavSecondFragment();
+                fragmentManager.beginTransaction().replace(R.id.container_content, navSecondFragment).commit();
+                mDrawerLayout.closeDrawers();
+                break;
+            case R.id.nav_third:
+                Fragment navThirdFragment = new NavThirdFragment();
+                fragmentManager.beginTransaction().replace(R.id.container_content, navThirdFragment).commit();
+                mDrawerLayout.closeDrawers();
                 break;
         }
         return true;
@@ -125,8 +140,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
                 break;
             case R.id.main_tab_catagory:
-                Fragment secondFragment=new SecondTabFragment();
-                fragmentManager.beginTransaction().replace(R.id.container_content,secondFragment).commit();
+                Fragment secondFragment = new SecondTabFragment();
+                fragmentManager.beginTransaction().replace(R.id.container_content, secondFragment).commit();
 
                 break;
             case R.id.mdin_tab_me:

@@ -11,29 +11,12 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <RelativeLayout
-            android:id="@+id/top_relative"
-            android:layout_width="fill_parent"
-            android:layout_height="50.0dip">
 
-            <ImageView
-                android:id="@+id/titleBg"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:background="#461616"/>
-
-            <TextView
-                android:id="@+id/titleText"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:padding="10.0dip"
-                android:singleLine="true"
-                android:text="Second"
-                android:textColor="@color/white"
-                android:textSize="15dp"/>
-
-        </RelativeLayout>
+        <com.damily.pkds.Defined_TitleBarView
+            android:id="@+id/back_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </com.damily.pkds.Defined_TitleBarView>
 
         <Button
             android:id="@+id/bt_image"

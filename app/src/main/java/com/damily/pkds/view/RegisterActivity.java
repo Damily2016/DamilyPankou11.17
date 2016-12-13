@@ -32,7 +32,6 @@ public class RegisterActivity extends Activity {
     private EditText userPhoneText, userPasswordText, userNameText, codeText;
     private TextView loginView;
     private Button registerButton, getCodeButton;//,back_register;     自定义title view注释
-  //  private Defined_TitleBarView back_register;
     private TextView title_tv;
     private EventHandler eventHandler;
     private String userPhone;
@@ -47,7 +46,6 @@ public class RegisterActivity extends Activity {
     }
     //初始化界面
     void initView() {
-      //  back_register = (Defined_TitleBarView) findViewById(R.id.back_register);//exit register page
         title_tv= (TextView) findViewById(R.id.title_tv);//自定义view
         title_tv.setText("Register");//自定义view
         userPhoneText = (EditText) findViewById(R.id.user_phone_input);

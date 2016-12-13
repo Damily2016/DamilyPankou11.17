@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:background="#461616">
+
 <Button
     android:id="@+id/left_btn"
     android:layout_width="20dp"
@@ -11,6 +12,14 @@
     android:layout_margin="10dp"
     android:background="@drawable/back1"
     />
+    <Button
+        android:id="@+id/home_btn"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:background="@android:drawable/ic_menu_sort_by_size"
+        />
     <TextView
         android:id="@+id/title_tv"
         android:layout_width="wrap_content"

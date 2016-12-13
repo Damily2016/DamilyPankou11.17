@@ -8,17 +8,17 @@
             android:icon="@drawable/ic_dashboard"
             android:title="@string/main_navigation_home"/>
         <item
-            android:id="@+id/nav_messages"
+            android:id="@+id/nav_second"
             android:icon="@drawable/ic_event"
-            android:title="HJ Class"/>
+            android:title="解析"/>
         <item
-            android:id="@+id/nav_friends"
+            android:id="@+id/nav_third"
             android:icon="@drawable/ic_headset"
-            android:title="Words"/>
+            android:title="渔业信息"/>
         <item
-            android:id="@+id/nav_discussion"
+            android:id="@+id/nav_forth"
             android:icon="@drawable/ic_forum"
-            android:title="Big HJ"/>
+            android:title="Demo2"/>
     </group>
 
     <item android:title="Version">

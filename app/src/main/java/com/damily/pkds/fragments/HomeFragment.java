@@ -10,9 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.damily.pkds.R;
 import com.damily.pkds.adapter.FragmentAdapter;
 import com.damily.pkds.view.MainActivity;
-import com.damily.pkds.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -8,4 +8,6 @@
     <dimen name="bottom_tab_font_size">12.0dip</dimen>
     <dimen name="bottom_tab_padding_up">1.0dip</dimen>
     <dimen name="bottom_tab_padding_drawable">1.0dip</dimen>
+    <dimen name="x30">13.33px</dimen>
+    <dimen name="y40">17.79px</dimen>
 </resources>

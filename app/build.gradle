@@ -50,6 +50,8 @@ dependencies {
     compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Core-2.7.10.jar')
     compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Favorite-2.7.10.jar')
     compile files('src/main/java/com/damily/pkds/libs/ShareSDK-Wechat-Moments-2.7.10.jar')
+    compile files('src/main/java/com/damily/pkds/libs/gson-2.2.4.jar')
+    compile files('src/main/java/com/damily/pkds/libs/volley.jar')
 }
 
 repositories{

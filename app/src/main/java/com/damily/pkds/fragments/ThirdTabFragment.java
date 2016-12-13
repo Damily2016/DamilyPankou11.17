@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.damily.pkds.R;
 import com.damily.pkds.view.LoginActivity;
@@ -23,6 +24,8 @@ public class ThirdTabFragment extends Fragment implements View.OnClickListener {
     private Button btn_login,btn_register;
     private MainActivity mainActivity;
     private View view;
+    private Button left_btn;
+    private TextView title_tv;
     private static final String TAG = "ThirdTabFragment";
     public void onAttach(Activity activity) {
         if (activity instanceof MainActivity){
@@ -39,6 +42,10 @@ public class ThirdTabFragment extends Fragment implements View.OnClickListener {
        view =inflater.inflate(R.layout.activity_thirdtab,null);
         TabLayout tabLayout=mainActivity.getTabLayout();
         tabLayout.setVisibility(View.GONE);
+        left_btn= (Button) view.findViewById(R.id.left_btn);          //自定义view的
+        left_btn.setVisibility(View.GONE);                                //自定义view的
+        title_tv= (TextView) view.findViewById(R.id.title_tv);//自定义view
+        title_tv.setText("Me");//自定义view
         initView();
         return view;
     }

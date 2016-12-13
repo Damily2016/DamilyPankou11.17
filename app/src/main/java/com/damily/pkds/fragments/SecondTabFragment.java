@@ -51,6 +51,8 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
     private MainActivity mainActivity;
     private EditText et_get;
     private TextView tv_get;
+    private Button left_btn;
+    private TextView title_tv;
     private static final String TAG = "SecondTabFragment";
     File appDir;
     File file;
@@ -66,6 +68,10 @@ public class SecondTabFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mainActivity.getSupportActionBar().hide();
         view = inflater.inflate(R.layout.activity_secondtab, container,false);
+        left_btn= (Button) view.findViewById(R.id.left_btn);          //自定义view的
+        left_btn.setVisibility(View.GONE);                                //自定义view的
+        title_tv= (TextView) view.findViewById(R.id.title_tv);//自定义view
+        title_tv.setText("Second");//自定义view
         TabLayout tabLayout=mainActivity.getTabLayout();
         tabLayout.setVisibility(View.GONE);
         iv_rcode = (ImageView) view.findViewById(R.id.iv_rcode);

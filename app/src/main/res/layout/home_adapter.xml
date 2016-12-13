@@ -1,0 +1,128 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/card_margin"
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="8dp" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f2f2f2"
+    android:orientation="horizontal" >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="17.79px"
+            android:layout_marginTop="17.79px"
+            android:layout_marginLeft="13.33px" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="设备名称："
+                android:textColor="@color/textColor"
+                android:textSize="17.79px" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView1"
+                android:layout_alignBottom="@+id/textView1"
+                android:layout_marginLeft="13.33px"
+                android:layout_toRightOf="@+id/textView1"
+                android:text="计量器"
+                android:singleLine="true"
+                android:textColor="@color/valueColor"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView1"
+                android:layout_marginTop="@dimen/y40"
+                android:text="记录时间："
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/tv_datetime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView4"
+                android:layout_alignBottom="@+id/textView4"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_toRightOf="@+id/textView4"
+                android:text="2016/12/17  13:00:00"
+                android:textColor="@color/valueColor"
+                android:singleLine="true"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:layout_marginTop="@dimen/y40"
+                android:text="设备类型："
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/tv_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_toRightOf="@+id/textView3"
+                android:text="投喂配置"
+                android:textColor="@color/valueColor"
+                android:singleLine="true"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="false"
+                android:layout_below="@+id/textView3"
+                android:layout_marginTop="@dimen/y40"
+                android:text="报修人员："
+                android:textColor="@color/textColor"
+                android:textSize="@dimen/y40" />
+
+            <TextView
+                android:id="@+id/tv_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_alignBottom="@+id/textView2"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="Admin"
+                android:textColor="@color/valueColor"
+                android:singleLine="true"
+                android:textSize="@dimen/y40" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/x30"
+            android:orientation="vertical" >
+            <ImageView
+                android:id="@+id/deviceimage"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@mipmap/ic_caoyu"/>
+        </LinearLayout>
+
+</LinearLayout>
+    </android.support.v7.widget.CardView>
