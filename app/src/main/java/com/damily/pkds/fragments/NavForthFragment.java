@@ -8,9 +8,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +23,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.damily.pkds.R;
-import com.damily.pkds.adapter.HomeAdapter;
+import com.damily.pkds.adapter.NavForthAdapter;
 import com.damily.pkds.common.URL;
-import com.damily.pkds.entity.DeviceInfo;
+import com.damily.pkds.entity.GiftInfo;
 import com.damily.pkds.view.MainActivity;
 import com.google.gson.Gson;
 
@@ -35,14 +34,12 @@ import java.util.List;
 /**
  * Created by Dandan.Cao on 2016/12/12.
  */
-public class NavThirdFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-    private SwipeRefreshLayout rf_layout;
-    private RecyclerView rv_recyclerView;
-    private DeviceInfo deviceInfo;
-    private List<DeviceInfo.MessageBean.RecordsBean> records;
-    private HomeAdapter mAdapter;
+public class NavForthFragment extends Fragment  {
+    private RecyclerView rv_navforth_recyclerView;
+    private GiftInfo giftInfo;
+    private NavForthAdapter mAdapter;
     private MainActivity mainActivity;
-
+    public List<GiftInfo.DataBean.ItemsBean> datas;
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -54,38 +51,41 @@ public class NavThirdFragment extends Fragment implements SwipeRefreshLayout.OnR
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.navigation_third, null);
+        View view = inflater.inflate(R.layout.navigation_forth, null);
         initView(view);
-        initData();
+
         return view;
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        initData();
 
-
-
+    }
     private void initView(View view) {
-        rf_layout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
-        rf_layout.setOnRefreshListener(this);
-        rv_recyclerView = (RecyclerView) view.findViewById(R.id.rv_recyclerView);
-        rv_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rv_navforth_recyclerView = (RecyclerView) view.findViewById(R.id.rv_navforth_recyclerView);
+      // rv_navforth_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        StaggeredGridLayoutManager sgGridLayoutManager=new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+        rv_navforth_recyclerView.setLayoutManager(sgGridLayoutManager);
         TabLayout tabLayout=mainActivity.getTabLayout();
         RadioGroup main_tab_group= (RadioGroup) mainActivity.findViewById(R.id.main_tab_group);
         tabLayout.setVisibility(View.GONE);
         main_tab_group.setVisibility(View.GONE);
     }
-
     private void initData() {
-        String url = URL.DEVICEFIX;
+        String url = URL.GIFT;
         RequestQueue mRequestQueue = Volley.newRequestQueue(getActivity());
         StringRequest request = new StringRequest(url, new Response.Listener<String>() {
+
             @Override
             public void onResponse(String result) {
                     if ((result != null) & (isNetworkConnected(getContext()))) {
                         Gson gson = new Gson();
-                        deviceInfo = gson.fromJson(result, DeviceInfo.class);
-                        records = deviceInfo.getMessage().getRecords();
-                        mAdapter = new HomeAdapter(records, getContext());
-                        rv_recyclerView.setAdapter(mAdapter);
-                        rf_layout.setRefreshing(false);
+                        giftInfo = gson.fromJson(result, GiftInfo.class);
+                        datas=giftInfo.getData().getItems();
+                        mAdapter = new NavForthAdapter(datas, getContext());
+                        rv_navforth_recyclerView.setAdapter(mAdapter);
+
                     }
             }
         }, new Response.ErrorListener() {
@@ -110,8 +110,5 @@ public class NavThirdFragment extends Fragment implements SwipeRefreshLayout.OnR
         }
         return false;
     }
-    @Override
-    public void onRefresh() {
-        initData();
-    }
+
 }

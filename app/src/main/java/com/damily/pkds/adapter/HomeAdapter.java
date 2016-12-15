@@ -40,7 +40,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder> 
         holder.tv_datetime.setText(recordBean.getSubmitTime());
         holder.tv_type.setText(recordBean.getTypeName());
         holder.tv_user.setText(recordBean.getSubmitUser());
-        holder.itemView.setTag(position);
+
     }
     @Override
     public int getItemCount() {
