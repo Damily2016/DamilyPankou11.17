@@ -1,11 +1,12 @@
 package com.damily.pkds.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by Dandan.Cao on 2016/12/15.
  */
-public class GiftInfo {
+public class GiftInfo implements Serializable {
     private int code;
     private DataBean data;
     public int getCode() {
@@ -21,8 +22,10 @@ public class GiftInfo {
     public void setData(DataBean data) {
         this.data = data;
     }
+private GiftInfo(){}
 
-    public static class DataBean {
+
+    public static class DataBean implements Serializable{
 
         private List<ItemsBean> items;
 
@@ -34,7 +37,7 @@ public class GiftInfo {
             this.items = items;
         }
 
-        public static class ItemsBean {
+        public static class ItemsBean implements Serializable{
 
             private DataDetailBean data;
 
@@ -46,10 +49,21 @@ public class GiftInfo {
                 this.data = data;
             }
 
-            public static class DataDetailBean {
+            public static class DataDetailBean  implements Serializable{
                 private String cover_image_url;
                 private String name;
                 private String description;
+
+                public void setPurchase_url(String purchase_url) {
+                    this.purchase_url = purchase_url;
+                }
+
+                private String purchase_url;
+
+                public String getPurchase_url() {
+                    return purchase_url;
+                }
+
                 public void setDescription(String description) {
                     this.description = description;
                 }

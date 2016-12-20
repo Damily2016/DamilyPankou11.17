@@ -60,8 +60,6 @@ public class NavThirdFragment extends Fragment implements SwipeRefreshLayout.OnR
         return view;
     }
 
-
-
     private void initView(View view) {
         rf_layout = (SwipeRefreshLayout) view.findViewById(R.id.refresh_layout);
         rf_layout.setOnRefreshListener(this);

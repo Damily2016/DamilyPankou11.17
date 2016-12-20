@@ -10,5 +10,5 @@ public class URL {
     //设备报修
     public static String DEVICEFIX = BASE_URL + "/ams/device/maintain";
     //礼物说
-    public static String  GIFT="http://api.liwushuo.com/v2/items?limit=20&offset=0&gender=1&generation=2";
+    public static String  GIFT="http://api.liwushuo.com/v2/items?limit=30&offset=0&gender=1&generation=2";
 }

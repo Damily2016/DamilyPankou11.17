@@ -46,6 +46,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
+
+        <activity android:name=".view.Test"/>
     </application>
 
 </manifest>
