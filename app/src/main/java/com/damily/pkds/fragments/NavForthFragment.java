@@ -111,7 +111,6 @@ public class NavForthFragment extends Fragment  {
                     if ((result != null) & (isNetworkConnected(getContext()))) {
                         Gson gson = new Gson();
                         giftInfo = gson.fromJson(result, GiftInfo.class);
-                        Log.i(TAG, giftInfo.getData().getItems().size()+"");
                         datas=giftInfo.getData().getItems();
                         mAdapter = new NavForthAdapter(datas, getContext());
                         mAdapter.setOnRecycleViewListener(new NavForthAdapter.OnRecycleViewListener() {
