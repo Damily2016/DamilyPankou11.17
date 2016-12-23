@@ -11,11 +11,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
@@ -41,8 +39,6 @@ public class NavForthFragment extends Fragment  {
     private RecyclerView rv_navforth_recyclerView;
     private GiftInfo giftInfo;
     private NavForthAdapter mAdapter;
-    GiftInfo.DataBean.ItemsBean itemsBean;
-    List<GiftInfo.DataBean.ItemsBean> itemss;
     private MainActivity mainActivity;
     public List<GiftInfo.DataBean.ItemsBean> datas;
     private static final String PARAM_GIFT="com.damily.pkds.entity.GiftInfo";
@@ -85,8 +81,6 @@ public class NavForthFragment extends Fragment  {
             super.handleMessage(msg);
             refresh();
         }
-
-
     };
     private void refresh() {
         mAdapter.notifyDataSetChanged();
@@ -98,9 +92,10 @@ public class NavForthFragment extends Fragment  {
         rv_navforth_recyclerView.setLayoutManager(sgGridLayoutManager);
         rv_navforth_recyclerView.setHasFixedSize(true);
         TabLayout tabLayout=mainActivity.getTabLayout();
-        RadioGroup main_tab_group= (RadioGroup) mainActivity.findViewById(R.id.main_tab_group);
+       // RadioGroup main_tab_group= (RadioGroup) mainActivity.findViewById(R.id.main_tab_group);
+       mainActivity.findViewById(R.id.main_tab_group).setVisibility(View.GONE);
         tabLayout.setVisibility(View.GONE);
-        main_tab_group.setVisibility(View.GONE);
+      //   main_tab_group.setVisibility(View.GONE);
     }
     private void initData() {
         String url = URL.GIFT;
@@ -116,8 +111,7 @@ public class NavForthFragment extends Fragment  {
                         mAdapter.setOnRecycleViewListener(new NavForthAdapter.OnRecycleViewListener() {
                             @Override
                             public void onItemClick(View view, int position) {
-                                Log.i(TAG, giftInfo.getData().getItems().get(position).getData().getPurchase_url());
-                                String url = giftInfo.getData().getItems().get(position).getData().getPurchase_url();
+                                String url =datas.get(position).getData().getPurchase_url();
                                 Intent intent=new Intent(getActivity(),Test.class);
                                 intent.putExtra(PARAM_GIFT,url);
                                 startActivity(intent);

@@ -14,7 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.android.volley.NoConnectionError;
@@ -66,9 +65,10 @@ public class NavThirdFragment extends Fragment implements SwipeRefreshLayout.OnR
         rv_recyclerView = (RecyclerView) view.findViewById(R.id.rv_recyclerView);
         rv_recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         TabLayout tabLayout=mainActivity.getTabLayout();
-        RadioGroup main_tab_group= (RadioGroup) mainActivity.findViewById(R.id.main_tab_group);
+//        RadioGroup main_tab_group= (RadioGroup) mainActivity.findViewById(R.id.main_tab_group);
         tabLayout.setVisibility(View.GONE);
-        main_tab_group.setVisibility(View.GONE);
+        //main_tab_group.setVisibility(View.GONE);
+        mainActivity.findViewById(R.id.main_tab_group).setVisibility(View.GONE);
     }
 
     private void initData() {

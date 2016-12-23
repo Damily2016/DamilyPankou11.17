@@ -46,11 +46,9 @@ public class NavForthAdapter extends RecyclerView.Adapter<NavForthAdapter.MyView
         MyViewHolder holder = new MyViewHolder(v);
         return holder;
     }
-
     @Override
     public void onBindViewHolder(final MyViewHolder holder, int position) {
         itemsBean = items.get(position);
-
         holder.tv_name.setText(itemsBean.getData().getName());
         holder.tv_description.setText(itemsBean.getData().getDescription());
         Glide.with(context).load(itemsBean.getData().getCover_image_url()).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(holder.cover_image);
@@ -62,7 +60,6 @@ public class NavForthAdapter extends RecyclerView.Adapter<NavForthAdapter.MyView
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return items.size();

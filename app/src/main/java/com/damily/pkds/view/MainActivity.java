@@ -2,7 +2,6 @@ package com.damily.pkds.view;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
@@ -15,7 +14,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
@@ -23,17 +21,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.damily.pkds.MyApplication;
 import com.damily.pkds.R;
+import com.damily.pkds.entity.TabEntity;
 import com.damily.pkds.fragments.HomeFragment;
 import com.damily.pkds.fragments.NavForthFragment;
 import com.damily.pkds.fragments.NavSecondFragment;
 import com.damily.pkds.fragments.NavThirdFragment;
 import com.damily.pkds.fragments.SecondTabFragment;
 import com.damily.pkds.fragments.ThirdTabFragment;
+import com.damily.pkds.utils.ViewFindUtils;
+import com.flyco.tablayout.CommonTabLayout;
+import com.flyco.tablayout.listener.CustomTabEntity;
+import com.flyco.tablayout.listener.OnTabSelectListener;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
     private ConnectivityManager manager;
@@ -42,12 +46,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Toolbar toolbar;
     private FragmentManager fragmentManager;
     private RadioButton main_tab_home, main_tab_catagory, mdin_tab_me;
-    private RadioGroup main_tab_group;
+    //private RadioGroup main_tab_group;
     private static final String TAG = "MainActivity";
+    long exitTime = 0;
 
     public TabLayout getTabLayout() {
         return mTabLayout;
     }
+
+    private View mDecorView;
+    private String[] mTitles = {"首页", "分类", "我的"};
+    private int[] mIconUnfocus = {R.drawable.wo_unfocus, R.drawable.home_unfocus, R.drawable.wo_unfocus};
+    private int[] mIconFocus = {R.drawable.wo_focus, R.drawable.home_focus, R.drawable.wo_focus};
+    private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
+    private ArrayList<Fragment> mfragments = new ArrayList<>();
+    private CommonTabLayout mTabCommonLayout;
+    Fragment homeFragment, secondFragment, moreFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +70,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         MyApplication.getInstance().addActivity(this);
         initView();
+
+        mDecorView = getWindow().getDecorView();
+        mTabCommonLayout = ViewFindUtils.find(mDecorView, R.id.main_tab_group);
+        homeFragment = new HomeFragment();
+        secondFragment = new SecondTabFragment();
+        moreFragment = new ThirdTabFragment();
+        mfragments.add(homeFragment);
+        mfragments.add(secondFragment);
+        mfragments.add(moreFragment);
+        for (int i = 0; i < mTitles.length; i++) {
+            mTabEntities.add(new TabEntity(mTitles[i], mIconFocus[i], mIconUnfocus[i]));
+        }
+        mTabCommonLayout.setTabData(mTabEntities, this, R.id.container_content, mfragments);
+
+        mTabCommonLayout.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelect(int position) {
+                switch (position) {
+                    case 0:
+                        Fragment homeFragment = new HomeFragment();
+                        fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
+                        break;
+                    case 1:
+                        Fragment secondFragment = new SecondTabFragment();
+                        fragmentManager.beginTransaction().replace(R.id.container_content, secondFragment).commit();
+                        break;
+                    case 2:
+                        Fragment moreFragment = new ThirdTabFragment();
+                        fragmentManager.beginTransaction().replace(R.id.container_content, moreFragment).commit();
+                        break;
+                }
+            }
+            @Override
+            public void onTabReselect(int position) {
+            }
+        });
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -85,23 +135,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar1);
         mTabLayout = (TabLayout) findViewById(R.id.tabs);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main_drawer);
-        main_tab_home = (RadioButton) findViewById(R.id.main_tab_home);
+       /* main_tab_home = (RadioButton) findViewById(R.id.main_tab_home);
         main_tab_catagory = (RadioButton) findViewById(R.id.main_tab_catagory);
         mdin_tab_me = (RadioButton) findViewById(R.id.mdin_tab_me);
-        main_tab_group = (RadioGroup) findViewById(R.id.main_tab_group);
-        main_tab_home.setOnClickListener(this);
+        main_tab_group = (RadioGroup) findViewById(R.id.main_tab_group);*/
+      /*  main_tab_home.setOnClickListener(this);
         main_tab_catagory.setOnClickListener(this);
-        mdin_tab_me.setOnClickListener(this);
+        mdin_tab_me.setOnClickListener(this);*/
         fragmentManager = getSupportFragmentManager();
         NavigationView navigationView =
                 (NavigationView) findViewById(R.id.nv_main_navigation);
         navigationView.setNavigationItemSelectedListener(this);
         Fragment homeFragment = new HomeFragment();
         fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
-
-
     }
-
     @Override
     protected void onResume() { // judge network Broadcast
         super.onResume();
@@ -174,15 +221,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Fragment homeFragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
                 mDrawerLayout.closeDrawers();
-                main_tab_home.setChecked(true);
-                main_tab_group.setVisibility(View.VISIBLE);
+                //   main_tab_home.setChecked(true);
+                //   main_tab_group.setVisibility(View.VISIBLE);
+                mTabCommonLayout.setVisibility(View.VISIBLE);
                 break;
             case R.id.nav_second:
                 Fragment navSecondFragment = new NavSecondFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, navSecondFragment).commit();
                 mDrawerLayout.closeDrawers();
                 break;
-          case R.id.nav_third:
+            case R.id.nav_third:
                 Fragment navThirdFragment = new NavThirdFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, navThirdFragment).commit();
                 mDrawerLayout.closeDrawers();
@@ -192,7 +240,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentManager.beginTransaction().replace(R.id.container_content, navForthFragment).commit();
                 mDrawerLayout.closeDrawers();
                 break;
-
         }
         return true;
     }
@@ -200,7 +247,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.main_tab_home:
+           /* case R.id.main_tab_home:
                 Fragment homeFragment = new HomeFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, homeFragment).commit();
                 break;
@@ -212,73 +259,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.mdin_tab_me:
                 Fragment moreFragment = new ThirdTabFragment();
                 fragmentManager.beginTransaction().replace(R.id.container_content, moreFragment).commit();
-                break;
+                break;*/
 
         }
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(NetworkReceiver);
     }
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setMessage("确定要退出吗?");
-            builder.setTitle("提示");
-            builder.setPositiveButton("确定", listener);
-            builder.setNegativeButton("取消", listener);
-            builder.create().show();
-        }
-        return false;
-       /* if (keyCode==KeyEvent.KEYCODE_BACK && event.getAction()==KeyEvent.ACTION_DOWN){
-             long exitTime=0;
-            if ((System.currentTimeMillis()-exitTime)>2000){
-                Toast.makeText(getApplicationContext(),"再按一次退出程序",Toast.LENGTH_SHORT).show();
-                exitTime=System.currentTimeMillis();
-            }else
-            {
-               finish();
-               System.exit(0);
+        if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+                System.exit(0);
             }
             return true;
         }
-        return super.onKeyDown(keyCode, event);*/
-    }
-/*    public boolean dispatchKeyEvent(KeyEvent event){
-        if (event.getKeyCode()==KeyEvent.KEYCODE_BACK){
-            if (event.getAction()==KeyEvent.ACTION_DOWN && event.getRepeatCount()==0){
-                this.exitApp();
-            }
-            return true;
-        }
-        return super.dispatchKeyEvent(event);
+        return super.onKeyDown(keyCode, event);
     }
 
-    private void exitApp() {
-        long exitTime=0;
-        if ((System.currentTimeMillis()-exitTime)>2000){
-            Toast.makeText(getApplicationContext(),"再按一次退出程序",Toast.LENGTH_SHORT).show();
-            exitTime=System.currentTimeMillis();
-        }else
-        {
-            finish();
-
-        }
-    }*/
-    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which) {
-                case AlertDialog.BUTTON_POSITIVE:
-                    MyApplication.getInstance().exit();
-                    break;
-                case AlertDialog.BUTTON_NEGATIVE:
-                    dialog.dismiss();
-                break;
-            }
-        }
-    };
 
 }

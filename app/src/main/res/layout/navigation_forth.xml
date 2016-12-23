@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<cn.zeffect.views.statelayout.StateLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/statelayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
->
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_navforth_recyclerView"
+    app:emptyLayout="@layout/layout_empty"
+    app:errorLayout="@layout/layout_error"
+    app:loadingLayout="@layout/layout_loading"
+    app:noNetLayout="@layout/layout_nonet">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:divider="#ffff0000"
-        android:dividerHeight="4.44px"
-        />
+        android:orientation="vertical">
 
-</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_navforth_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#ffff0000"
+            android:dividerHeight="4.44px" />
+
+    </RelativeLayout>
+    </cn.zeffect.views.statelayout.StateLayout>
